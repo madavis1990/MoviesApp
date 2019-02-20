@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Movie Favorites</string>
+    <string name="movie_poster">movie poster</string>
+    <string name="blade_runner">Blade Runner</string>
+    <string name="release_year">2018</string>
+    <string name="rating">8 / 10 </string>
+    <string name="description">A sequel to the 1984 sci fi extravaganza</string>
+    <string name="next">next</string>
+    <string name="back">back</string>
+</resources>
