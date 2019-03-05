@@ -29,9 +29,6 @@ public class Utils {
     // Recommended image size for poster
     private static final String IMAGE_SIZE = "w185";
 
-    //
-    //  *********** USE YOUR OWN API KEY
-    //
     // API Key for themoviedb.org request
     private static final String API_MOVIE_KEY = "ca2835a4ddfe46df8d93b4c22ac6a340";
 
@@ -48,9 +45,6 @@ public class Utils {
     public static final  int    IMAGE_SIZE_WIDTH       = 600;
     public static final  int    IMAGE_SIZE_HEIGHT      = 825;
 
-    /**
-     *     This class is a "service" class; not meant to be instantiated;
-     */
     private Utils() {
     }
 
@@ -62,8 +56,6 @@ public class Utils {
      * The actual movies will be fetched and parsed in FetchMoviesTask.
      */
     public static void addFirstMovie () {
-
-        //  UNCOMMENT THESE LINES WHEN YOU HAVE CREATED CLASSES PopularMovies, Movie
 
          PopularMovies popularMovies = PopularMovies.getInstance();
           String description = "Thirty years after the events of the first film, a new blade runner, LAPD Officer K, unearths a long-buried secret that has the potential to plunge what's left of society into chaos. K's discovery leads him on a quest to find Rick Deckard, a former LAPD blade runner who has been missing for 30 years.";
@@ -112,14 +104,14 @@ public class Utils {
         return url;
     }
 
-    // Disconnect from the URL quietly; we don't care about null or exceptions
+    // Disconnect from the URL quietly;
     public static void closeQuietly(HttpURLConnection urlConnection) {
         if (urlConnection != null) {
             urlConnection.disconnect();
         }
     }
 
-    // Close the reader stream quietly; we don't care about null or exceptions
+    // Close the reader stream quietly;
     public static void closeQuietly(BufferedReader stream) {
         if (stream != null) {
             try {
@@ -133,7 +125,7 @@ public class Utils {
 
 
     /**
-     * Extracts the movie information from the JSON String we downloaded.
+     * Extracts the movie information from the downloaded JSON String
      * @param moviesJsonString JSON formatted string of movie information
      * @return ArrayList<Movie> The list of movies extracted as objects
      * @throws JSONException Some problem with JSON
@@ -166,14 +158,9 @@ public class Utils {
             String posterPath     = jMovie.getString(POSTER_PATH);
             if (posterPath.equals("null")) posterPath = null;
 
-            //
-            //  WRITE THIS CODE
+            // Create a new movie instance and add it to the movies to be returned
             Movie movie = new Movie(id, title, rating, releaseYear, overview, posterPath);
             movies.add(movie);
-            //
-
-
-            // Create a new movie instance and add it to the movies to be returned
 
         }
         return movies;

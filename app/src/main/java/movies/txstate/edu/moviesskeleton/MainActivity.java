@@ -56,14 +56,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    Movie movie = null;
-    movie = popularMovies.getMovie(currentIndex);
-    loadMovieImage(movie, movieImage);
-    movieTitle.setText(movie.getTitle());
-    System.out.println(movieTitle);
-    releaseYear.setText(movie.getReleaseYear());
-    rating.setText(movie.getRating() + "/" + Utils.MAXIMUM_MOVIE_RATING);
-    description.setText(movie.getOverview());
     private void updateMovie(boolean isNext){
         PopularMovies popularMovies = PopularMovies.getInstance();
         Movie movie = null;
@@ -110,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadMovieImage (Movie movie, ImageView view) {
 
-        // Uncomment when Movie and PopularMovies classes are defined
         try {
             URL url = Utils.buildMovieImageURL(movie.getPosterPath());
             Log.v(LOG_TAG, "Movie poster url " + url);

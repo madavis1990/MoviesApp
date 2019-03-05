@@ -18,9 +18,7 @@ import java.util.Iterator;
 
 /**
  * The asynchronous task that fetches movie information from themoviedb.org database
- * via a RESTful interface. Right now we do not use the first parameter String,
- * rather we pass in an empty string, but this won't work without passing in something,
- * so don't pass a VOID as argument 1!!!!!
+ * via a RESTful interface.
  *
  * An ArrayList of Movies are returned if successful.
  */
@@ -70,9 +68,6 @@ public class FetchMoviesTask extends
 
             String line;
             while ((line = reader.readLine()) != null) {
-                // Since it's JSON, adding a newline isn't necessary (it won't affect parsing)
-                // But it does make debugging a *lot* easier if you print out the completed
-                // buffer for debugging.
                 buffer.append(line).append("\n");
             }
 
@@ -95,19 +90,12 @@ public class FetchMoviesTask extends
     }
 
     /**
-     * After execution of the FetchMovies task doInBackground method, replace the
-     * returned array list of movies (if any) in the PopularMovies singleton and
-     * do an addAll to the movie adapter to update the display.
-     *
      * @param movies The movies returned from the RESTful call
      */
     @Override
     protected void onPostExecute(ArrayList<Movie> movies) {
         super.onPostExecute(movies);
-        //  WRITE THIS CODE!!!
-        // The ArrayList of Movie objects passed to this method
-        // should be added to the PopularMovies set of movies by
-        // the appropriate call.
+
         PopularMovies popularMovies = PopularMovies.getInstance();
 
         Iterator<Movie> itr = movies.iterator();

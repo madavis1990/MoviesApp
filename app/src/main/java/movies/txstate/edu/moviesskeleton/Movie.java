@@ -1,7 +1,6 @@
 package movies.txstate.edu.moviesskeleton;
 
 public class Movie {
-    //The attributes in the directions list the attributes and tyh
     private int id;
     private String title;
     private String rating;
